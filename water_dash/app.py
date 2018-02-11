@@ -46,9 +46,17 @@ def root():
         paragraph=' Data has been scraped from the Twitter API since August'
             ' 2017 and new data is added daily. See the repo on Github as'
             ' <a href="https://github.com/MichaelCurrin/twitterverse">'
-            'twitterverse</a>. <br><br> '
+            'twitterverse</a>. '
+            '<br><br> '
             'Trending topics have been filtered to terms related to the water'
-            ' crisis such as dam, drought, water, crisis and day zero.',
+            ' crisis such as dam, drought, water, crisis and day zero. '
+            '<br><br> '
+            'Volume is the <i>global</i> count of tweets about the topic, in'
+            ' the past 24 hours, at the time the value was stored. The max'
+            ' volume shown below is the highest recorded value since the start'
+            ' of the available data. If not available then it was below'
+            ' 10,000 tweets and therefore was too low for Twitter to make'
+            ' available.',
         row_data=cast_result
     )
 
