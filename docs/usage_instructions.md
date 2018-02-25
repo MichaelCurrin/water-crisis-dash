@@ -3,7 +3,7 @@
 Start the web server.
 
 ```bash
-$ cd path/to/water_dash
+$ cd path/to/water_crisis_dash
 $ source virtualenv/bin/activate
 $ ./water_dash/app.py
 ```

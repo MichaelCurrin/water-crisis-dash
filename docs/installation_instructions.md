@@ -9,8 +9,8 @@ $ sudo apt-get install virtualenv
 ```
 
 ```bash
-$ git clone git@github.com:MichaelCurrin/water_crisis.git
-$ cd water_crisis
+$ git clone git@github.com:MichaelCurrin/water_crisis_dash.git
+$ cd water_dash
 $ # Create a virtualenvironment named `virtualenv`, which will be
 $ # ignored, as it is listed in .gitignore file.
 $ virtualenv virtualenv
