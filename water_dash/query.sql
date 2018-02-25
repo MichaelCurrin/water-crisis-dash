@@ -11,7 +11,11 @@ WHERE place.name = 'Cape Town'
     (
           trend.topic LIKE '%water%'
        OR trend.topic LIKE '%drought%'
-       OR trend.topic LIKE '%dam%'
+       OR (
+               trend.topic LIKE '%dam%'
+           AND trend.topic NOT LIKE '%van damme%'
+           AND trend.topic NOT LIKE '%damian%'
+          )
        OR trend.topic LIKE '%level%'
        OR trend.topic LIKE '%shortage%'
        OR trend.topic LIKE '%flush%'
