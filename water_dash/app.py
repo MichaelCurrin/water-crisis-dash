@@ -64,4 +64,10 @@ def root():
 
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+    # Set the host to not be localhost, such that the server is visible on
+    # other devices on the network. This is useful for mobile device testing.
+    app.run(
+        host="0.0.0.0",
+        port=5000,
+        debug=True
+    )
