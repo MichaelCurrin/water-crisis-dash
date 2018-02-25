@@ -42,14 +42,17 @@ def root():
 
     html = lib.build_html(
         title="CPT Water Trends",
-        subtitle="Water crisis terms trending in Cape Town",
+        subtitle="Water crisis topics trending in Cape Town",
         paragraph=' Data has been scraped from the Twitter API since August'
-            ' 2017 and new data is added daily. See the repo on Github as'
+            ' 2017 and new data is added daily using my'
             ' <a href="https://github.com/MichaelCurrin/twitterverse">'
-            'twitterverse</a>. '
+            'twitterverse</a> repo. '
             '<br><br> '
             'Trending topics have been filtered to terms related to the water'
             ' crisis such as dam, drought, water, crisis and day zero. '
+            ' The code for this Flask web server is available in my'
+            ' <a href="https://github.com/MichaelCurrin/water_crisis">'
+            'Water Crisis</a> repo on Github.'
             '<br><br> '
             'Volume is the <i>global</i> count of tweets about the topic, in'
             ' the past 24 hours, at the time the value was stored. The max'
