@@ -30,6 +30,10 @@ def build_html(title, row_data, subtitle="", paragraph=""):
                 font-family: Arial, Helvetica, sans-serif;
             }}
 
+            table {{
+                width: 200;
+            }}
+
             table, th, td {{
                 border: 1px solid black;
                 border-collapse: collapse;
@@ -37,6 +41,18 @@ def build_html(title, row_data, subtitle="", paragraph=""):
 
             th, td {{
                padding: 5px;
+            }}
+
+            tr:nth-child(even) {{
+                background-color: #f2f2f2;
+            }}
+
+            @media (max-width: 1000px)  {{
+                /* horizontal scrollbar for tables if mobile screen */
+                table {{
+                    overflow-x: auto;
+                    width: 100%;
+                }}
             }}
 
         </style>
