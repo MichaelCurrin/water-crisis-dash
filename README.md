@@ -1,6 +1,6 @@
 # Water Dashboard
 
->Web server providing reporting functionality around the Cape Town water crisis.
+>Reporting on Twitter trending data related to the Cape Town water crisis (Python2 web server)
 
 The only path currently in this server is an HTML page viewable at [michaelcurrin.pythonanywhere.com](https://michaelcurrin.pythonanywhere.com). The server queries a SQLite database that contains trending topic data retrieved from the [Twitter API](https://dev.twitter.com/docs). Data is added on a daily schedule using my [twitterverse](https://github.com/MichaelCurrin/twitterverse) repo, which runs as a separate application and can be used to fetch either high-level trending topics or individual tweet data.
 
