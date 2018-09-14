@@ -1,32 +1,37 @@
-#!/usr/bin/env python2
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 """
 Water dashboard main application file.
 """
+import os
+
 from flask import Flask
 from sqlalchemy import create_engine
 
 import config
 import lib
 
-
+assert os.access(config.db_path, os.R_OK), (
+    "Create the database or symlink then restart the application."
+    " Expected path: {}".format(config.db_path)
+)
 SQL_ENGINE = create_engine("sqlite:///{}".format(config.db_path))
 
 with open(config.query_path) as f_in:
-    SQL = f_in.read()
+    SQL_QUERY = f_in.read()
 
 app = Flask(__name__, static_url_path='/static')
 
 
 @app.route('/')
 def root():
-    """Web app root.
+    """
+    Web app root.
 
     Execute a fixed query and return the results in an HTML table form.
     """
     conn = SQL_ENGINE.connect()
 
-    query = conn.execute(SQL)
+    query = conn.execute(SQL_QUERY)
     result = query.cursor.fetchall()
 
     cast_result = (
@@ -67,7 +72,7 @@ def root():
 
 
 if __name__ == '__main__':
-    # Set the host to not be localhost, such that the server is visible on
+    # Set the host to be anything, such that the server is visible on
     # other devices on the network. This is useful for mobile device testing.
     app.run(
         host="0.0.0.0",
