@@ -1,6 +1,34 @@
 """
 Library file.
 """
+import os
+
+from sqlalchemy import create_engine
+
+import config
+
+
+def get_connection():
+    """
+    Create and return a connection to the configured SQLite database.`
+    """
+    assert os.access(config.db_path, os.R_OK), (
+        "Create the database or symlink then restart the application."
+        " Expected path: {}".format(config.db_path)
+    )
+    SQL_ENGINE = create_engine("sqlite:///{}".format(config.db_path))
+
+    return SQL_ENGINE.connect()
+
+
+def fetch_data(query):
+    """
+    Expect a SQL query, execute it and return data as a list of tuples.
+    """
+    conn = get_connection()
+    query = conn.execute(query)
+
+    return query.cursor.fetchall()
 
 
 def build_html(title, row_data, subtitle="", paragraph=""):
