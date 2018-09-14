@@ -1,11 +1,11 @@
-# -*- coding: utf-8 -*-
 """
 Library file.
 """
 
 
 def build_html(title, row_data, subtitle="", paragraph=""):
-    """Use templates to build HTML with dynamic table rows.
+    """
+    Use templates to build HTML with dynamic table rows.
 
     Footer is kept at the bottom of the page thanks to:
         http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page
