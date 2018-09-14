@@ -2,15 +2,15 @@
 
 *Note: this currently this repo is intended to use SQLite database file created by the [twitterverse](https://github.com/MichaelCurrin/twitterverse) application, so queries in this repo will only work based if the appropriate database file is present and has data to represent. When that is done, instead of copying the data to the water_dash `var` directory, it is recommended to create a symlink. These instructions will be added in future.*
 
-## OS-level dependencies
+## Install OS-level dependencies
 
-**Linux**
+### Linux
 
 ```bash
 $ sudo apt-get install python3
 ```
 
-**Mac**
+### Mac
 
 ```bash
 $ brew install python@3
