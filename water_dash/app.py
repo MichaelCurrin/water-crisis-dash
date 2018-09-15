@@ -7,7 +7,7 @@ from flask import Flask
 import config
 import lib
 
-with open(config.query_path) as f_in:
+with open(config.QUERY_PATH) as f_in:
     SQL_QUERY = f_in.read()
 
 app = Flask(__name__, static_url_path='/static')

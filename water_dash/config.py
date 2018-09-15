@@ -7,11 +7,11 @@ names on app start, using config names as fallback.
 import os
 
 
-db_name = 'db.sqlite'
-query_name = 'query.sql'
+DB_NAME = 'db.sqlite'
+QUERY_NAME = 'ct_water_trends.sql'
 
-app_dir = os.path.abspath(
+APP_DIR = os.path.abspath(
     os.path.join(os.path.dirname(__file__))
 )
-db_path = os.path.join(app_dir, 'var', db_name)
-query_path = os.path.join(app_dir, query_name)
+DB_PATH = os.path.join(APP_DIR, 'var', DB_NAME)
+QUERY_PATH = os.path.join(APP_DIR, 'sql', QUERY_NAME)

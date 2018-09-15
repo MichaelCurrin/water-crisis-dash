@@ -12,11 +12,11 @@ def get_connection():
     """
     Create and return a connection to the configured SQLite database.`
     """
-    assert os.access(config.db_path, os.R_OK), (
+    assert os.access(config.DB_PATH, os.R_OK), (
         "Create the database or symlink then restart the application."
-        " Expected path: {}".format(config.db_path)
+        " Expected path: {}".format(config.DB_PATH)
     )
-    SQL_ENGINE = create_engine("sqlite:///{}".format(config.db_path))
+    SQL_ENGINE = create_engine("sqlite:///{}".format(config.DB_PATH))
 
     return SQL_ENGINE.connect()
 
