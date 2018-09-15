@@ -1,26 +1,33 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
 """
 Water dashboard main application file.
 """
 from flask import Flask
+from sqlalchemy import create_engine
 
 import config
 import lib
 
+
+SQL_ENGINE = create_engine("sqlite:///{}".format(config.db_path))
+
 with open(config.query_path) as f_in:
-    SQL_QUERY = f_in.read()
+    SQL = f_in.read()
 
 app = Flask(__name__, static_url_path='/static')
 
 
 @app.route('/')
 def root():
-    """
-    Web app root.
+    """Web app root.
 
     Execute a fixed query and return the results in an HTML table form.
     """
-    results = lib.fetch_data(SQL_QUERY)
+    conn = SQL_ENGINE.connect()
+
+    query = conn.execute(SQL)
+    result = query.cursor.fetchall()
 
     cast_result = (
         (
@@ -30,13 +37,13 @@ def root():
             row[3],
             "not available" if row[4] is None else "{:,d}".format(int(row[4]))
         )
-        for row in results
+        for row in result
     )
 
     html = lib.build_html(
         title="CPT Water Trends",
         subtitle="Water crisis topics trending in Cape Town",
-        paragraph='Data has been scraped from the Twitter API since August'
+        paragraph=' Data has been scraped from the Twitter API since August'
             ' 2017 and new data is added daily using my'
             ' <a href="https://github.com/MichaelCurrin/twitterverse">'
             'twitterverse</a> repo. '
@@ -44,7 +51,7 @@ def root():
             'Trending topics have been filtered to terms related to the water'
             ' crisis such as dam, drought, water, crisis and day zero. '
             ' The code for this Flask web server is available in my'
-            ' <a href="https://github.com/MichaelCurrin/water-crisis-dash">'
+            ' <a href="https://github.com/MichaelCurrin/water_crisis_dash">'
             'Water Crisis</a> repo on Github.'
             '<br><br> '
             'Volume is the <i>global</i> count of tweets about the topic, in'
@@ -60,7 +67,7 @@ def root():
 
 
 if __name__ == '__main__':
-    # Set the host to be anything, such that the server is visible on
+    # Set the host to not be localhost, such that the server is visible on
     # other devices on the network. This is useful for mobile device testing.
     app.run(
         host="0.0.0.0",

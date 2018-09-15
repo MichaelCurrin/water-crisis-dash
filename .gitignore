@@ -1,8 +1,9 @@
 # Compiled Python binaries.
 *.pyc
 
-# Virtual environment
-venv
+# Virtual environment as symlink or directory.
+virtualenv
+virtualenv/
 
 # Database files.
 *.sqlite
