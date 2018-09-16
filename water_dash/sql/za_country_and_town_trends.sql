@@ -1,7 +1,8 @@
 /**
  *  Trend data filtered to South African (country and town level).
  *  Each topic appears once against a place, with stats for that topic in
- *  that place.
+ *  that place. Topics are sorted case insensitively. Hashtags will appear
+ *  first and then the phrases will follow.
  */
 
 
@@ -36,7 +37,9 @@ filtered_places AS (
 
 /**
  * Column ordering and order clause make it easy to see the same topic
- * across places. The topic type and place type are used for easy reading
+ * across places. The topic type and place type are used for easy reading.
+ * The max volume can be null if all the values to group are null, but the
+ * date and count columns will always set.
  */
 SELECT
     CASE WHEN trend.hashtag THEN 'hashtag' ELSE 'phrase' END AS topic_type,
@@ -46,7 +49,7 @@ SELECT
     DATE(MAX(trend.timestamp)) AS last_trended_at_place,
     DATE(MIN(trend.timestamp)) AS first_trended_at_place,
     COUNT(DISTINCT(DATE(trend.timestamp))) AS days_mentioned_at_place,
-    MAX(trend.volume) AS highest_volume_globally
+    MAX(trend.volume) AS highest_global_volume
 FROM trend
 INNER JOIN filtered_places ON trend.place_id = filtered_places.id
 GROUP BY
@@ -55,7 +58,6 @@ GROUP BY
     place_type,
     place_name
 ORDER BY
-    topic_type,
-    trend.topic,
+    LOWER(trend.topic),
     place_type,
     place_name
