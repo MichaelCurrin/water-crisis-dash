@@ -33,6 +33,8 @@ WHERE place.name = 'Cape Town'
        OR trend.topic LIKE '%crisis%'
        OR trend.topic LIKE '%disaster%'
        OR trend.topic LIKE '%day%zero%'
+       OR trend.topic LIKE '%shower%'
+       OR trend.topic LIKE '%bath%'
     )
 GROUP BY trend.topic
 ORDER BY last_trended DESC
