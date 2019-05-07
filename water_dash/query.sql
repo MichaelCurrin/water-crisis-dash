@@ -9,12 +9,20 @@ INNER JOIN place ON trend.place_id = place.id
 WHERE place.name = 'Cape Town'
  AND
     (
-          trend.topic LIKE '%water%'
+       (
+               trend.topic LIKE '%water%'
+           AND trend.topic NOT LIKE '%watermelon%'
+       )
        OR trend.topic LIKE '%drought%'
        OR (
                trend.topic LIKE '%dam%'
            AND trend.topic NOT LIKE '%van damme%'
            AND trend.topic NOT LIKE '%damian%'
+           AND trend.topic NOT LIKE '%dame%'
+           AND trend.topic NOT LIKE '%damn%'
+           AND trend.topic NOT LIKE '%madam%'
+           AND trend.topic NOT LIKE '%damanifesto%'
+           AND trend.topic NOT LIKE '%notre%dam%'
           )
        OR trend.topic LIKE '%level%'
        OR trend.topic LIKE '%shortage%'
