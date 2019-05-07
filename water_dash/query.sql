@@ -37,4 +37,4 @@ WHERE place.name = 'Cape Town'
        OR trend.topic LIKE '%bath%'
     )
 GROUP BY trend.topic
-ORDER BY last_trended DESC
+ORDER BY last_trended DESC;
