@@ -36,12 +36,14 @@ ELECTION = dict(
         The data includes trending terms on Twitter from 1 Jan 2019
         to present. The table below has been filtered to topics which
         trended in South Africa which match the elections, voting,
-        specific parties or similar terms.<br><br>
-
+        specific parties or similar terms.<br>
+        <br>
+        Get source data as a CSV: <a href="/download"><button>Download</button><a/><br>
+        <br>
         See the <a href="https://github.com/MichaelCurrin/twitterverse">Twitterverse repo</a>
-        on Github.com - it was created to scrape tweets and trending topics.<br><br>
-
-        Volume is the <i>global</i> count of tweets about the topic, in
+        on Github.com - it was created to scrape tweets and trending topics.<br>
+        <br>
+        Max Volume is the <i>global</i> count of tweets about the topic, in
         the past 24 hours, at the time the value was stored. The max
         volume shown below is the highest recorded value since the start
         of the available data. If not available then it was below
