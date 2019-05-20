@@ -1,5 +1,5 @@
 SELECT
-    place.name,
+    place.name AS place_name,
     DATE(trend.timestamp) AS date,
     trend.topic,
     trend.volume
