@@ -73,10 +73,9 @@ def root():
 
     Execute a fixed query and return the results in an HTML table form.
     """
-    conn = SQL_ENGINE.connect()
-
-    query = conn.execute(SQL)
-    result = query.cursor.fetchall()
+    with SQL_ENGINE.connect() as conn:
+        query = conn.execute(SQL)
+        result = query.cursor.fetchall()
 
     cast_result = (
         (
