@@ -2,7 +2,11 @@
 """
 Water dashboard main application file.
 """
+import csv
+from io import StringIO
+
 from flask import Flask
+from flask import make_response
 from sqlalchemy import create_engine
 
 import config
@@ -13,6 +17,9 @@ SQL_ENGINE = create_engine("sqlite:///{}".format(config.db_path))
 
 with open(config.query_path) as f_in:
     SQL = f_in.read()
+
+with open(config.source_data_query) as f_in:
+    SQL_SOURCE = f_in.read()
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -89,6 +96,24 @@ def root():
     )
 
     return html
+
+
+@app.route('/download')
+def request_csv():
+    with SQL_ENGINE.connect() as conn:
+        query = conn.execute(SQL_SOURCE)
+        result = query.cursor.fetchall()
+    fields = [col[0] for col in query.cursor.description]
+
+    buffer = StringIO()
+    writer = csv.writer(buffer)
+    writer.writerows([fields])
+    writer.writerows(result)
+    output = make_response(buffer.getvalue())
+    output.headers["Content-Disposition"] = "attachment; filename=export.csv"
+    output.headers["Content-type"] = "text/csv"
+
+    return output
 
 
 if __name__ == '__main__':
