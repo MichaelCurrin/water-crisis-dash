@@ -9,7 +9,7 @@ import os
 
 
 db_name = 'db.sqlite'
-query_name = 'query.sql'
+query_name = 'elections.sql'
 
 app_dir = os.path.abspath(
     os.path.join(os.path.dirname(__file__))
