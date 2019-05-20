@@ -51,6 +51,7 @@ WHERE place.name = 'South Africa'
     OR trend.topic LIKE '%thabo%'
     OR trend.topic LIKE '%mbeki%'
 )
-ORDER BY date DESC,
-         volume DESC
+ORDER BY place_name ASC,
+         date DESC,
+         topic ASC
 ;
