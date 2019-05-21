@@ -51,12 +51,15 @@ ELECTION = dict(
     ''',
 )
 
-db_name = 'db.sqlite'
-query_name = 'elections.sql'
-source_data_query = 'elections_source.sql'
 
-app_dir = os.path.abspath(
+APP_DIR = os.path.abspath(
     os.path.join(os.path.dirname(__file__))
 )
-db_path = os.path.join(app_dir, 'var', db_name)
-query_path = os.path.join(app_dir, query_name)
+
+DB_NAME = 'db.sqlite'
+QUERY_NAME = 'elections.sql'
+SOURCE_DATA_QUERY = 'elections_source.sql'
+
+DB_PATH = os.path.join(APP_DIR, 'var', DB_NAME)
+QUERY_PATH = os.path.join(APP_DIR, 'sql', QUERY_NAME)
+SOURCE_DATA_PATH = os.path.join(APP_DIR, 'sql', SOURCE_DATA_QUERY)

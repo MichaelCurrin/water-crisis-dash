@@ -11,10 +11,10 @@ from flask import make_response
 import config
 import lib
 
-with open(config.query_path) as f_in:
+with open(config.QUERY_PATH) as f_in:
     SQL_QUERY = f_in.read()
 
-with open(config.source_data_query) as f_in:
+with open(config.SOURCE_DATA_PATH) as f_in:
     SQL_SOURCE = f_in.read()
 
 app = Flask(__name__, static_url_path='/static')
