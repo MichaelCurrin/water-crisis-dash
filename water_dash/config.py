@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Configuration file.
 
@@ -19,7 +18,7 @@ WATER = dict(
               'Trending topics have been filtered to terms related to the water'
               ' crisis such as dam, drought, water, crisis and day zero. '
               ' The code for this Flask web server is available in my'
-              ' <a href="https://github.com/MichaelCurrin/water_crisis_dash">'
+              ' <a href="https://github.com/MichaelCurrin/water-crisis-dash">'
               'Water Crisis</a> repo on Github.'
               '<br><br> '
               'Volume is the <i>global</i> count of tweets about the topic, in'

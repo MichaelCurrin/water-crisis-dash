@@ -1,11 +1,41 @@
-# -*- coding: utf-8 -*-
 """
 Library file.
 """
+import os
+
+from sqlalchemy import create_engine
+
+import config
+
+
+def get_connection():
+    """
+    Create and return a connection to the configured SQLite database.`
+    """
+    assert os.access(config.db_path, os.R_OK), (
+        "Create the database or symlink then restart the application."
+        " Expected path: {}".format(config.db_path)
+    )
+    SQL_ENGINE = create_engine("sqlite:///{}".format(config.db_path))
+
+    return SQL_ENGINE.connect()
+
+
+def fetch_data(query):
+    """
+    Expect a SQL query, execute it and return rows and field names.
+    """
+    with get_connection() as conn:
+        query = conn.execute(query)
+        rows = query.cursor.fetchall()
+        fields = [col[0] for col in query.cursor.description]
+
+    return rows, fields
 
 
 def build_html(title, row_data, subtitle="", paragraph=""):
-    """Use templates to build HTML with dynamic table rows.
+    """
+    Use templates to build HTML with dynamic table rows.
 
     Footer is kept at the bottom of the page thanks to:
         http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page
