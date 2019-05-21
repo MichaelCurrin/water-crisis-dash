@@ -15,7 +15,7 @@ WHERE place.name = 'South Africa'
     OR trend.topic LIKE '%decide%'
     OR (trend.topic LIKE '%elect%' AND trend.topic NOT LIKE '%selective%')
     OR (trend.topic LIKE '%iec%' AND trend.topic != '4 Piece Shopper Bag Set')
-    OR trend.topic LIKE '%rally%'
+    OR (trend.topic LIKE '%rally%' AND trend.topic NOT LIKE '%literally%')
     OR trend.topic LIKE '%one%sa%'
     OR trend.topic LIKE '%politic%'
     OR trend.topic LIKE '%register%'
@@ -29,16 +29,16 @@ WHERE place.name = 'South Africa'
     OR trend.topic LIKE '%agang%'
 
     OR trend.topic LIKE '%our%da%'
-    OR (trend.topic LIKE '#da%' AND trend.topic NOT LIKE '#date%' AND trend.topic NOT LIKE '%#dave%' AND trend.topic NOT LIKE '#dare%' AND trend.topic NOT LIKE '#dayone%')
+    OR (trend.topic LIKE '#da%' AND trend.topic NOT LIKE '#date%' AND trend.topic NOT LIKE '%#dave%' AND trend.topic NOT LIKE '#dare%' AND trend.topic NOT LIKE '#dayone%' AND trend.topic NOT LIKE 'dan %' AND trend.topic NOT LIKE '#data%')
     OR trend.topic LIKE '%khula%'
 
     OR (trend.topic LIKE '%eff%' AND trend.topic NOT LIKE '%jeff%' AND trend.topic != '#ReeceEffect')
     OR trend.topic LIKE '%nqoba%'
     OR trend.topic LIKE '%our%land%'
     OR trend.topic LIKE '%julias%'
-    OR trend.topic LIKE '%malema%'
+    OR (trend.topic LIKE '%malema%' AND trend.topic NOT LIKE '%sarah%malema%')
 
-    OR trend.topic LIKE '%atm%'
+    OR (trend.topic LIKE '%atm%' AND trend.topic NOT LIKE '%batman%')
     OR (
            trend.topic LIKE '%anc%'
        AND trend.topic NOT LIKE '%manc%'
