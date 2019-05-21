@@ -1,4 +1,6 @@
--- worldwide tweets
+/**
+ * Worldwide tweets
+ */
 SELECT
     trend.topic,
     DATE(MAX(trend.timestamp)) AS last_trended,
