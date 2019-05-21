@@ -23,12 +23,14 @@ def get_connection():
 
 def fetch_data(query):
     """
-    Expect a SQL query, execute it and return data as a list of tuples.
+    Expect a SQL query, execute it and return rows and field names.
     """
-    conn = get_connection()
-    query = conn.execute(query)
+    with get_connection() as conn:
+        query = conn.execute(query)
+        rows = query.cursor.fetchall()
+        fields = [col[0] for col in query.cursor.description]
 
-    return query.cursor.fetchall()
+    return rows, fields
 
 
 def build_html(title, row_data, subtitle="", paragraph=""):
