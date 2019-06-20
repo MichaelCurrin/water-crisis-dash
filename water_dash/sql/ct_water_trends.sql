@@ -1,3 +1,4 @@
+-- Aggregated Cape Town water-related trends
 SELECT
     trend.topic,
     DATE(MAX(trend.timestamp)) AS last_trended,

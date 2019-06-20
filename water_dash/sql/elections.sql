@@ -1,3 +1,4 @@
+-- Aggregated election data.
 SELECT
     trend.topic,
     DATE(MAX(trend.timestamp)) AS last_trended,
