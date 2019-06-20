@@ -1,2 +1,4 @@
 flask
 sqlalchemy
+pylint
+autopep8
