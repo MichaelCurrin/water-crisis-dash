@@ -7,6 +7,15 @@ names on app start, using config names as fallback.
 import os
 
 
+# Set the host to be anything, such that the server is visible on
+# other devices on the network. This is useful for mobile device testing.
+RUN_OPTIONS = dict(
+        host="0.0.0.0",
+        port=5000,
+        debug=True
+)
+
+
 WATER = dict(
     title="CPT Water Trends",
     subtitle="Water crisis topics trending in Cape Town",

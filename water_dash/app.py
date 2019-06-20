@@ -68,10 +68,4 @@ def request_csv():
 
 
 if __name__ == '__main__':
-    # Set the host to be anything, such that the server is visible on
-    # other devices on the network. This is useful for mobile device testing.
-    app.run(
-        host="0.0.0.0",
-        port=5000,
-        debug=True
-    )
+    app.run(config.RUN_OPTIONS)
