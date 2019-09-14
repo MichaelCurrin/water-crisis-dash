@@ -18,6 +18,7 @@ WHERE place.name = 'Cape Town'
        OR (
                trend.topic LIKE '%dam%'
            AND trend.topic NOT LIKE '%van damme%'
+           AND trend.topic NOT LIKE '%vandamme%'
            AND trend.topic NOT LIKE '%damian%'
            AND trend.topic NOT LIKE '%dame%'
            AND trend.topic NOT LIKE '%damn%'
