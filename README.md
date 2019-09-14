@@ -1,6 +1,5 @@
 # Water Dashboard
-
->Reporting on Twitter trending data related to the Cape Town water crisis (Python3 [Flask](http://flask.pocoo.org/) web server)
+> Reporting on Twitter trending data related to the Cape Town water crisis (Python3 [Flask](http://flask.pocoo.org/) web server)
 
 There is only one web page currently on this server. It is viewable at [michaelcurrin.pythonanywhere.com](https://michaelcurrin.pythonanywhere.com). On a request, webserver queries a SQLite database that contains trending topic data retrieved from the [Twitter API](https://dev.twitter.com/docs). That data is added on a daily schedule using my [twitterverse](https://github.com/MichaelCurrin/twitterverse) repo, which runs as a separate application and can be used to fetch either high-level trending topics or individual tweet data.
 
@@ -9,13 +8,12 @@ The data which is shown on the server is a filtered view of all the trending dat
 
 ## Documentation
 
-- [Installation instructions](docs/installation.md)
-- [Usage instructions](docs/usage.md)
+- [Installation instructions](/docs/installation.md)
+- [Usage instructions](/docs/usage.md)
 
 
 ## Future
 
-I have plans to expand the visualizations on the server using something liek one of these:
+I have plans to expand the visualizations on the server using something like one of these:
 - the Python [dash](https://plot.ly/products/dash/) library
 - JavaScript's [D3](https://d3js.org/) library.
-
