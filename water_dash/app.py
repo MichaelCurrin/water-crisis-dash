@@ -40,7 +40,7 @@ def root():
         for row in results
     )
 
-    chosen_topic = config.ELECTION
+    chosen_topic = config.WATER
     html = lib.build_html(
         row_data=cast_result,
         **chosen_topic,

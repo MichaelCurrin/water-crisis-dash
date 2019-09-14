@@ -66,8 +66,8 @@ APP_DIR = os.path.abspath(
 )
 
 DB_NAME = 'db.sqlite'
-QUERY_NAME = 'elections.sql'
-SOURCE_DATA_QUERY = 'elections_source.sql'
+QUERY_NAME = 'ct_water_trends.sql'
+SOURCE_DATA_QUERY = 'ct_water_trends_source.sql'
 
 DB_PATH = os.path.join(APP_DIR, 'var', DB_NAME)
 QUERY_PATH = os.path.join(APP_DIR, 'sql', QUERY_NAME)
