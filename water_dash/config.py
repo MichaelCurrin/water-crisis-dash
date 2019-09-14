@@ -7,6 +7,15 @@ names on app start, using config names as fallback.
 import os
 
 
+# Set the host to be anything, such that the server is visible on
+# other devices on the network. This is useful for mobile device testing.
+RUN_OPTIONS = dict(
+        host="0.0.0.0",
+        port=5000,
+        debug=True
+)
+
+
 WATER = dict(
     title="CPT Water Trends",
     subtitle="Water crisis topics trending in Cape Town",
@@ -57,8 +66,8 @@ APP_DIR = os.path.abspath(
 )
 
 DB_NAME = 'db.sqlite'
-QUERY_NAME = 'elections.sql'
-SOURCE_DATA_QUERY = 'elections_source.sql'
+QUERY_NAME = 'ct_water_trends.sql'
+SOURCE_DATA_QUERY = 'ct_water_trends_source.sql'
 
 DB_PATH = os.path.join(APP_DIR, 'var', DB_NAME)
 QUERY_PATH = os.path.join(APP_DIR, 'sql', QUERY_NAME)

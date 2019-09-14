@@ -11,9 +11,9 @@ from flask import make_response
 import config
 import lib
 
+
 with open(config.QUERY_PATH) as f_in:
     SQL_QUERY = f_in.read()
-
 with open(config.SOURCE_DATA_PATH) as f_in:
     SQL_SOURCE = f_in.read()
 
@@ -40,7 +40,7 @@ def root():
         for row in results
     )
 
-    chosen_topic = config.ELECTION
+    chosen_topic = config.WATER
     html = lib.build_html(
         row_data=cast_result,
         **chosen_topic,
@@ -51,13 +51,16 @@ def root():
 
 @app.route('/download')
 def request_csv():
+    """
+    Endpoint to allow a user to download a CSV.
+    """
     results, fields = lib.fetch_data(SQL_SOURCE)
 
-    buffer = StringIO()
-    writer = csv.writer(buffer)
+    str_buffer = StringIO()
+    writer = csv.writer(str_buffer)
     writer.writerows([fields])
     writer.writerows(results)
-    output = make_response(buffer.getvalue())
+    output = make_response(str_buffer.getvalue())
     output.headers["Content-Disposition"] = "attachment; filename=export.csv"
     output.headers["Content-type"] = "text/csv"
 
@@ -65,10 +68,4 @@ def request_csv():
 
 
 if __name__ == '__main__':
-    # Set the host to be anything, such that the server is visible on
-    # other devices on the network. This is useful for mobile device testing.
-    app.run(
-        host="0.0.0.0",
-        port=5000,
-        debug=True
-    )
+    app.run(config.RUN_OPTIONS)

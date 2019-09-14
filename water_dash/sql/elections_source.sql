@@ -1,3 +1,4 @@
+-- Source election data (without aggregation)
 SELECT
     place.name AS place_name,
     DATE(trend.timestamp) AS date,

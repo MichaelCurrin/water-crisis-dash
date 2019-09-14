@@ -1,4 +1,4 @@
--- South African tweets in this month or the previous month.
+-- Cape Town tweets in this month or the previous month.
 SELECT
     trend.topic,
     DATE(MAX(trend.timestamp)) AS last_trended,
@@ -7,7 +7,7 @@ SELECT
     MAX(trend.volume) AS highest_volume
 FROM trend
 INNER JOIN place ON trend.place_id = place.id
-WHERE place.name = 'South Africa'
+WHERE place.name = 'Cape Town'
 GROUP BY trend.topic
-HAVING last_trended >=  DATE('now','start of month','-1 month')
+HAVING last_trended >=  DATE('now', 'start of month', '-1 month')
 ORDER BY last_trended DESC;
