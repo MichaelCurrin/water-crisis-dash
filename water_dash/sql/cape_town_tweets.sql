@@ -10,5 +10,4 @@ INNER JOIN place ON trend.place_id = place.id
 WHERE place.name = 'Cape Town'
 GROUP BY trend.topic
 HAVING last_trended >=  DATE('now', 'start of month', '-1 month')
-   AND highest_volume IS NOT NULL
 ORDER BY last_trended DESC;
