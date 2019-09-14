@@ -48,7 +48,7 @@ SELECT
     filtered_places.name AS place_name,
     DATE(MAX(trend.timestamp)) AS last_trended_at_place,
     DATE(MIN(trend.timestamp)) AS first_trended_at_place,
-    COUNT(DISTINCT(DATE(trend.timestamp))) AS days_mentioned_at_place,
+    COUNT(DISTINCT(DATE(trend.timestamp))) AS days_trended_at_place,
     MAX(trend.volume) AS highest_global_volume
 FROM trend
 INNER JOIN filtered_places ON trend.place_id = filtered_places.id
