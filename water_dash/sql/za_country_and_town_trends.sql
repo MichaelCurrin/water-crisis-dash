@@ -5,7 +5,6 @@
  *  first and then the phrases will follow.
  */
 
-
 WITH selected_countries AS (
     SELECT
         Place.child_name AS type,
