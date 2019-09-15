@@ -1,8 +1,8 @@
-# Compiled Python binaries.
-*.pyc
-
-# Virtual environment
+__pycache__
 venv
 
-# Database files.
+# Database.
 *.sqlite
+
+# Output.
+*.csv
