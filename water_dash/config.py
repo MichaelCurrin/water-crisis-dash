@@ -33,6 +33,8 @@ WATER = dict(
     " of the available data. If not available then it was below"
     " 10,000 tweets and therefore was too low for Twitter to make"
     " available.",
+    query_name="ct_water_trends.sql",
+    source_data_query="ct_water_trends_source.sql",
 )
 ELECTION = dict(
     title="Twitter Trends",
@@ -55,14 +57,20 @@ ELECTION = dict(
         10,000 tweets and therefore was too low for Twitter to make
         available.
     """,
+    query_name="elections.sql",
+    source_data_query="elections_source.sql",
 )
 
 
 APP_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 
 DB_NAME = "db.sqlite"
-QUERY_NAME = "ct_water_trends.sql"
-SOURCE_DATA_QUERY = "ct_water_trends_source.sql"
+
+# Customize
+TARGET = WATER
+
+QUERY_NAME = TARGET["query_name"]
+SOURCE_DATA_QUERY = TARGET["source_data_query"]
 
 DB_PATH = os.path.join(APP_DIR, "var", DB_NAME)
 QUERY_PATH = os.path.join(APP_DIR, "sql", QUERY_NAME)

@@ -20,6 +20,22 @@ with open(config.SOURCE_DATA_PATH) as f_in:
 app = Flask(__name__, static_url_path="/static")
 
 
+def to_csv(results, fields):
+    """
+    Convert data to downloadable CSV file.
+    """
+    str_buffer = StringIO()
+    writer = csv.writer(str_buffer)
+    writer.writerows([fields])
+    writer.writerows(results)
+
+    output = make_response(str_buffer.getvalue())
+    output.headers["Content-Disposition"] = "attachment; filename=export.csv"
+    output.headers["Content-type"] = "text/csv"
+
+    return output
+
+
 @app.route("/")
 def root():
     """
@@ -40,8 +56,10 @@ def root():
         for row in results
     )
 
-    chosen_topic = config.WATER
-    html = lib.build_html(row_data=cast_result, **chosen_topic)
+    title = config.TARGET["title"]
+    subtitle = config.TARGET["subtitle"]
+    paragraph = config.TARGET["paragraph"]
+    html = lib.build_html(title, cast_result, subtitle, paragraph)
 
     return html
 
@@ -53,16 +71,8 @@ def request_csv():
     """
     results, fields = lib.fetch_data(SQL_SOURCE)
 
-    str_buffer = StringIO()
-    writer = csv.writer(str_buffer)
-    writer.writerows([fields])
-    writer.writerows(results)
-    output = make_response(str_buffer.getvalue())
-    output.headers["Content-Disposition"] = "attachment; filename=export.csv"
-    output.headers["Content-type"] = "text/csv"
-
-    return output
+    return to_csv(results, fields)
 
 
 if __name__ == "__main__":
-    app.run(config.RUN_OPTIONS)
+    app.run(**config.RUN_OPTIONS)
