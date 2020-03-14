@@ -1,0 +1,8 @@
+{
+    "terminal.integrated.cwd": "water_dash",
+    "code-runner.cwd": "water_dash",
+
+    "python.pythonPath": "venv/bin/python",
+
+    "editor.rulers": [79],
+}
