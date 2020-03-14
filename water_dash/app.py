@@ -17,10 +17,10 @@ with open(config.QUERY_PATH) as f_in:
 with open(config.SOURCE_DATA_PATH) as f_in:
     SQL_SOURCE = f_in.read()
 
-app = Flask(__name__, static_url_path='/static')
+app = Flask(__name__, static_url_path="/static")
 
 
-@app.route('/')
+@app.route("/")
 def root():
     """
     Web app root.
@@ -35,21 +35,18 @@ def root():
             row[1],
             row[2],
             row[3],
-            "not available" if row[4] is None else "{:,d}".format(int(row[4]))
+            "not available" if row[4] is None else "{:,d}".format(int(row[4])),
         )
         for row in results
     )
 
     chosen_topic = config.WATER
-    html = lib.build_html(
-        row_data=cast_result,
-        **chosen_topic,
-    )
+    html = lib.build_html(row_data=cast_result, **chosen_topic)
 
     return html
 
 
-@app.route('/download')
+@app.route("/download")
 def request_csv():
     """
     Endpoint to allow a user to download a CSV.
@@ -67,5 +64,5 @@ def request_csv():
     return output
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(config.RUN_OPTIONS)

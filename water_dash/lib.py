@@ -127,5 +127,5 @@ def build_html(title, row_data, subtitle="", paragraph=""):
         title=title,
         subtitle=subtitle,
         paragraph=paragraph,
-        table_data="\n".join(formatted_rows)
+        table_data="\n".join(formatted_rows),
     )
