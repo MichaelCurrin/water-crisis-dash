@@ -3,12 +3,14 @@
 Start the web server.
 
 ```bash
-$ cd path/to/water_crisis_dash
+$ cd <PATH_TO_REPO>
 $ source virtualenv/bin/activate
 $ ./water_dash/app.py
 ```
 
-Open the browser at the http://localhost:5000 URL using your desktop machine. 
+Open the browser at:
+
+- http://localhost:5000
 
 The HTML and CSS has been written to be somewhat mobile responsive. So, if you have a mobile device connected to the network, you can use it view the service by following these steps:
 
