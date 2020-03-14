@@ -4,5 +4,12 @@
 
     "python.pythonPath": "venv/bin/python",
 
-    "editor.rulers": [79],
+    "editor.rulers": [
+        79
+    ],
+
+    "python.formatting.provider": "black",
+
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
 }
