@@ -9,6 +9,7 @@ import os
 
 # Set the host to be anything, such that the server is visible on
 # other devices on the network. This is useful for mobile device testing.
+# Turn off dotenv to avoid warning on app start for installing python-dotenv.
 RUN_OPTIONS = dict(host="0.0.0.0", port=5000, debug=True, load_dotenv=False)
 
 
