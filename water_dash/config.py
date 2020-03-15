@@ -60,6 +60,28 @@ ELECTION = dict(
     query_name="elections.sql",
     source_data_query="elections_source.sql",
 )
+CORONA = dict(
+    title="Covid-19 crisis",
+    subtitle="Twitter trends report on the corona virus",
+    paragraph="Daily daily starts from 1 Jan 2019. Data is pulled data"
+    " from Twitter API and stored in a DB using my"
+    ' <a href="https://github.com/MichaelCurrin/twitterverse">'
+    "twitterverse</a> repo."
+    "<br><br> "
+    "Trending topics have been filtered to terms related to the corona outbreak. "
+    " The code for this Flask web server is available in my"
+    ' <a href="https://github.com/MichaelCurrin/water-crisis-dash">'
+    "Water Crisis</a> repo on Github."
+    "<br><br> "
+    "Volume is the <i>global</i> count of tweets about the topic, in"
+    " the past 24 hours, at the time the value was stored. The max"
+    " volume shown below is the highest recorded value since the start"
+    " of the available data. If not available then it was below"
+    " 10,000 tweets and therefore was too low for Twitter to make"
+    " available.",
+    query_name="coronavirus.sql",
+    source_data_query="coronavirus_source.sql",
+)
 
 
 APP_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__)))
@@ -67,7 +89,7 @@ APP_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 DB_NAME = "db.sqlite"
 
 # Customize
-TARGET = WATER
+TARGET = CORONA
 
 QUERY_NAME = TARGET["query_name"]
 SOURCE_DATA_QUERY = TARGET["source_data_query"]
