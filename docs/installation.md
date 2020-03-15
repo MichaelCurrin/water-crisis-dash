@@ -36,6 +36,26 @@ Install packages into it.
 
 ```bash
 $ pip install --upgrade pip
-$ pip install -r requirements.txt
-$ pip install -r requirements-dev.txt
+$ pip install -r requirements.txt requirements-dev.txt
+```
+
+## Python Anywhere
+
+For _PythonAnywhere.com_ setup.
+
+Setup virtual environment.
+
+`venv` is not installed and Python 3.5 is the latest available in the terminal, but 3.4 is the default. So setup a new env with this:
+
+```sh
+$ virtualenv -p python3.5 ~/.local/virtualenvs/water-crisis-dash
+$ ln -s ~/.local/virtualenvs/water-crisis-dash venv
+$ source venv/bin/activate
+```
+
+Install packages into it.
+
+```sh
+$ pip install --upgrade pip
+$ pip install -r requirements.txt requirements-dev.txt
 ```
