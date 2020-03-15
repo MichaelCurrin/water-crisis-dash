@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Water dashboard main application file.
+Main application file.
 """
 import csv
 from io import StringIO
@@ -12,6 +12,7 @@ import config
 import lib
 
 
+# Read queries scripts at app start.
 with open(config.QUERY_PATH) as f_in:
     SQL_QUERY = f_in.read()
 with open(config.SOURCE_DATA_PATH) as f_in:
@@ -20,14 +21,14 @@ with open(config.SOURCE_DATA_PATH) as f_in:
 app = Flask(__name__, static_url_path="/static")
 
 
-def to_csv(results, fields):
+def to_csv(rows, fields):
     """
     Convert data to downloadable CSV file.
     """
     str_buffer = StringIO()
     writer = csv.writer(str_buffer)
     writer.writerows([fields])
-    writer.writerows(results)
+    writer.writerows(rows)
 
     output = make_response(str_buffer.getvalue())
     output.headers["Content-Disposition"] = "attachment; filename=export.csv"
@@ -64,7 +65,7 @@ def root():
     return html
 
 
-@app.route("/download")
+@app.route("/download.csv")
 def request_csv():
     """
     Endpoint to allow a user to download a CSV.
