@@ -37,9 +37,6 @@ def build_html(title, row_data, subtitle="", paragraph=""):
     """
     Use templates to build HTML with dynamic table rows.
 
-    Footer is kept at the bottom of the page thanks to:
-        http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page
-
     @param title: Title value to use in metadata and body.
     @param row_data: List of row of data as lists or tuples, to add to the HTML
         table output.
