@@ -7,6 +7,7 @@ from io import StringIO
 
 from flask import Flask
 from flask import make_response
+from flask_caching import Cache
 
 import config
 import lib
@@ -18,7 +19,9 @@ with open(config.QUERY_PATH) as f_in:
 with open(config.SOURCE_DATA_PATH) as f_in:
     SQL_SOURCE = f_in.read()
 
+cache = Cache(config=config.CACHE_OPTIONS)
 app = Flask(__name__, static_url_path="/static")
+cache.init_app(app)
 
 
 def to_csv(rows, fields):
@@ -38,6 +41,7 @@ def to_csv(rows, fields):
 
 
 @app.route("/")
+@cache.cached()
 def root():
     """
     Web app root.
@@ -66,6 +70,7 @@ def root():
 
 
 @app.route("/download.csv")
+@cache.cached()
 def request_csv():
     """
     Endpoint to allow a user to download a CSV.

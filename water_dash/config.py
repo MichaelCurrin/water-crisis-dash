@@ -12,6 +12,8 @@ import os
 # Turn off dotenv to avoid warning on app start for installing python-dotenv.
 RUN_OPTIONS = dict(host="0.0.0.0", port=5000, debug=True, load_dotenv=False)
 
+# These caused errors when passed to app.run in run options so do them separately.
+CACHE_OPTIONS = dict(CACHE_TYPE="simple", CACHE_DEFAULT_TIMEOUT=60 * 60 * 4)
 
 WATER = dict(
     title="CPT Water Trends",
