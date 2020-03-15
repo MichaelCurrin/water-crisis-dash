@@ -16,9 +16,9 @@ def get_connection():
         "Create the database or symlink then restart the application."
         " Expected path: {}".format(config.DB_PATH)
     )
-    SQL_ENGINE = create_engine("sqlite:///{}".format(config.DB_PATH))
+    sql_engine = create_engine("sqlite:///{}".format(config.DB_PATH))
 
-    return SQL_ENGINE.connect()
+    return sql_engine.connect()
 
 
 def fetch_data(query):
