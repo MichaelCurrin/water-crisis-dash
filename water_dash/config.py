@@ -48,7 +48,7 @@ ELECTION = dict(
         trended in South Africa which match the elections, voting,
         specific parties or similar terms.<br>
         <br>
-        Get source data as a CSV: <a href="/download"><button>Download</button><a/><br>
+        Get source data as a CSV: <a href="/export.csv"><button>Download</button><a/><br>
         <br>
         See the <a href="https://github.com/MichaelCurrin/twitterverse">Twitterverse repo</a>
         on Github.com - it was created to scrape tweets and trending topics.<br>

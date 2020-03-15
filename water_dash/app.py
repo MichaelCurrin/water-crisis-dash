@@ -69,7 +69,7 @@ def root():
     return html
 
 
-@app.route("/download.csv")
+@app.route("/export.csv")
 @cache.cached()
 def request_csv():
     """
