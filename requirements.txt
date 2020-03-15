@@ -1,4 +1,2 @@
-flask>=1.0.3
-sqlalchemy
-pylint
-autopep8
+flask~=1.1
+sqlalchemy~=1.3
