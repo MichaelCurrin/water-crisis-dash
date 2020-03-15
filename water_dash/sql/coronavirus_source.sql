@@ -12,6 +12,8 @@ WHERE
        OR trend.topic LIKE '%covid%'
        OR trend.topic LIKE '%symptom%'
        OR trend.topic LIKE '%case%'
+       OR trend.topic LIKE '%outbreak%'
+       OR trend.topic LIKE '%lockdown%'
        OR trend.topic LIKE '%epidemic%'
        OR trend.topic LIKE '%pandemic%'
        OR trend.topic LIKE '%disease%'
