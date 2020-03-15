@@ -66,22 +66,28 @@ ELECTION = dict(
 CORONA = dict(
     title="Covid-19 crisis",
     subtitle="Twitter trends report on the corona virus",
-    paragraph="Daily daily starts from 1 Jan 2019. Data is pulled data"
-    " from Twitter API and stored in a DB using my"
-    ' <a href="https://github.com/MichaelCurrin/twitterverse">'
-    "twitterverse</a> repo."
-    "<br><br> "
-    "Trending topics have been filtered to terms related to the corona outbreak. "
-    " The code for this Flask web server is available in my"
-    ' <a href="https://github.com/MichaelCurrin/water-crisis-dash">'
-    "Water Crisis</a> repo on Github."
-    "<br><br> "
-    "Volume is the <i>global</i> count of tweets about the topic, in"
-    " the past 24 hours, at the time the value was stored. The max"
-    " volume shown below is the highest recorded value since the start"
-    " of the available data. If not available then it was below"
-    " 10,000 tweets and therefore was too low for Twitter to make"
-    " available.",
+    paragraph="""
+        The table below shows daily trend data for the Worldwide level, starting
+        from 1 Jan 2019. Data is pulled data from Twitter API and stored in a DB
+        using my
+        <a href="https://github.com/MichaelCurrin/twitterverse">twitterverse</a> repo.
+        <br><br>
+
+        Trending topics have been filtered to terms
+        related to the corona outbreak. The code for this Flask web server is
+        available in my <a href="https://github.com/MichaelCurrin/water-crisis-dash">Water Crisis</a>
+        repo on Github.
+        <br><br>
+        Get source data as a CSV: <a href="/export.csv"><button>Download</button><a/>
+        <br><br>
+
+        Volume is the <i>global</i> count of tweets about
+        the topic, in the <i>past 24 hours</i>, at the time the value was stored. The max
+        volume shown below is the highest recorded value for that term, since the
+        start of the available data, so it is not necessarily the latest but it
+        still gives an idea of signifiance. If not available then it was below
+        10,000 tweets and therefore was too low for Twitter to make available.
+    """,
     query_name="coronavirus.sql",
     source_data_query="coronavirus_source.sql",
 )
