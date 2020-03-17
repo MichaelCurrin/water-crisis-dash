@@ -3,6 +3,7 @@
 Main application file.
 """
 import csv
+import urllib
 from io import StringIO
 
 from flask import Flask
@@ -40,6 +41,15 @@ def to_csv(rows, fields):
     return output
 
 
+def twitter_topic_link(topic):
+    """
+    Return Twitter URL for a topic.
+    """
+    return '<a href="https://twitter.com/search?q={}">{}</a>'.format(
+        urllib.parse.quote(topic), topic
+    )
+
+
 @app.route("/")
 @cache.cached()
 def root():
@@ -52,7 +62,7 @@ def root():
 
     cast_result = (
         (
-            row[0],
+            twitter_topic_link(row[0]),
             row[1],
             row[2],
             row[3],
