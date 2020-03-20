@@ -12,7 +12,7 @@ WHERE
        OR trend.topic LIKE '%covid%'
        OR trend.topic LIKE '%symptom%'
        OR trend.topic LIKE '%confirmed%case%'
-       OR trend.topic LIKE '%chinese%virus%'
+       OR trend.topic LIKE '%virus%'
        OR trend.topic LIKE '%stay%home%'
        OR trend.topic LIKE '%quarantine%'
        OR trend.topic LIKE '%outbreak%'
