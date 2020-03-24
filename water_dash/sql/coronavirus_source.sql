@@ -29,16 +29,16 @@ WHERE
        
        OR trend.topic LIKE '%stay%home%'
        OR trend.topic LIKE '%quarantine%'
+       OR trend.topic LIKE '%lockdown%'
        
        OR trend.topic LIKE '%strain%'
        OR trend.topic LIKE '%virus%'
        OR trend.topic LIKE '%outbreak%'
-       OR trend.topic LIKE '%lockdown%'
        OR trend.topic LIKE '%epidemic%'
        OR trend.topic LIKE '%pandemic%'
        OR trend.topic LIKE '%disease%'
        
-       -- Origina of the outbreak
+       -- Origin of the outbreak
        OR trend.topic LIKE '%China%'
        OR trend.topic LIKE '%Wuhan%'
 ORDER BY
