@@ -39,7 +39,7 @@ WHERE place.name = 'Worldwide'
        OR trend.topic LIKE '%pandemic%'
        OR trend.topic LIKE '%disease%'
        
-       -- Origina of the outbreak
+       -- Origin of the outbreak
        OR trend.topic LIKE '%China%'
        OR trend.topic LIKE '%Wuhan%'
      )
