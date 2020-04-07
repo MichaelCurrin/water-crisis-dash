@@ -8,6 +8,98 @@ from sqlalchemy import create_engine
 import config
 
 
+GA_SNIPPET = """
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-87705880-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-87705880-6');
+</script>
+"""
+
+BASE = """
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+            <title>{title}</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
+            <style>
+
+                html {{
+                    font-family: Arial, Helvetica, sans-serif;
+                }}
+
+                table {{
+                    width: 200;
+                }}
+
+                table, th, td {{
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                }}
+
+                th, td {{
+                padding: 5px;
+                }}
+
+                tr:nth-child(even) {{
+                    background-color: #f2f2f2;
+                }}
+
+                @media (max-width: 1000px)  {{
+                    /* horizontal scrollbar for tables if mobile screen */
+                    table {{
+                        overflow-x: auto;
+                        width: 100%;
+                    }}
+                }}
+
+            </style>
+
+            {scripts}
+        </head>
+
+        <body>
+            <h1>{title}</h1>
+
+            <h2>{subtitle}</h2>
+            <p><i>Application by Michael Currin</i></p>
+
+            <p>{paragraph}</p>
+
+            <table>
+                <tr>
+                    <th>Topic</th>
+                    <th>Last Trended</th>
+                    <th>First Trended</th>
+                    <th>Days Mentioned</th>
+                    <th>Max Volume</th>
+                </tr>
+                {table_data}
+            </table>
+        </body>
+
+    </html>
+"""
+
+ROW_TEMPLATE = """
+    <tr>
+        <td>{}</td>
+        <td align="center">{}</td>
+        <td align="center">{}</td>
+        <td align="right">{}</td>
+        <td align="right">{}</td>
+    </tr>
+"""
+
+
 def get_connection():
     """
     Create and return a connection to the configured SQLite database.`
@@ -45,83 +137,11 @@ def build_html(title, row_data, subtitle="", paragraph=""):
 
     @return: HTML template with title and table rows filled in.
     """
-    base = """
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>{title}</title>
+    formatted_rows = [ROW_TEMPLATE.format(*row) for row in row_data]
 
-        <style>
-
-            html {{
-                font-family: Arial, Helvetica, sans-serif;
-            }}
-
-            table {{
-                width: 200;
-            }}
-
-            table, th, td {{
-                border: 1px solid black;
-                border-collapse: collapse;
-            }}
-
-            th, td {{
-               padding: 5px;
-            }}
-
-            tr:nth-child(even) {{
-                background-color: #f2f2f2;
-            }}
-
-            @media (max-width: 1000px)  {{
-                /* horizontal scrollbar for tables if mobile screen */
-                table {{
-                    overflow-x: auto;
-                    width: 100%;
-                }}
-            }}
-
-        </style>
-    </head>
-
-    <body>
-        <h1>{title}</h1>
-
-        <h2>{subtitle}</h2>
-        <p><i>Application by Michael Currin</i></p>
-
-        <p>{paragraph}</p>
-
-        <table>
-            <tr>
-                <th>Topic</th>
-                <th>Last Trended</th>
-                <th>First Trended</th>
-                <th>Days Mentioned</th>
-                <th>Max Volume</th>
-            </tr>
-            {table_data}
-        </table>
-    </body>
-
-</html>
-    """
-
-    row_template = """
-            <tr>
-                <td>{}</td>
-                <td align="center">{}</td>
-                <td align="center">{}</td>
-                <td align="right">{}</td>
-                <td align="right">{}</td>
-            </tr>
-    """
-
-    formatted_rows = [row_template.format(*row) for row in row_data]
-
-    return base.format(
+    return BASE.format(
         title=title,
+        scripts=GA_SNIPPET,
         subtitle=subtitle,
         paragraph=paragraph,
         table_data="\n".join(formatted_rows),
