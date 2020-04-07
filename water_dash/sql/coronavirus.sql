@@ -17,10 +17,10 @@ WHERE place.name = 'Worldwide'
        OR trend.topic LIKE '%covid%'
        
        -- 2019-nCoV (from novel coronavirus).
-       OR trend.like LIKE '%nCoV%'
+       OR trend.topic LIKE '%nCoV%'
        -- CoV-2
-       OR trend.like LIKE '%CoV%2%'
-       OR trend.like LIKE '%SARS%'
+       OR trend.topic LIKE '%CoV%2%'
+       OR trend.topic LIKE '%SARS%'
        
        OR trend.topic LIKE '%symptom%'
        OR trend.topic LIKE '%confirmed%case%'
