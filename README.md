@@ -8,13 +8,17 @@ The data which is shown on the server is a filtered view of all the trending dat
 
 ## Documentation
 
-- [Installation instructions](/docs/installation.md)
-- [Usage instructions](/docs/usage.md)
-- Libraries
-    - [Flask](https://flask.palletsprojects.com/en/1.1.x/) website or [Flask](https://flask-doc.readthedocs.io/en/latest/) read-the-docs site. This is the web server.
-    - [Flask caching](https://flask-caching.readthedocs.io/en/latest/). This reduces queries to the database by caching the view. Built on [Flask-Cache](https://pythonhosted.org/Flask-Cache/).
+- [Installation](/docs/installation.md)
+- [Usage](/docs/usage.md)
 
-## Future
+
+## Resources
+
+- [Flask](https://flask.palletsprojects.com/en/1.1.x/) website or [Flask](https://flask-doc.readthedocs.io/en/latest/) read-the-docs site. This is the web server.
+- [Flask caching](https://flask-caching.readthedocs.io/en/latest/). This reduces queries to the database by caching the view. Built on [Flask-Cache](https://pythonhosted.org/Flask-Cache/).
+
+
+## Future development
 
 I have plans to expand the visualizations on the server using something like one of these:
 - the Python [dash](https://plot.ly/products/dash/) library
