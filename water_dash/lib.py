@@ -1,5 +1,5 @@
 """
-Library file.
+Library module.
 """
 import os
 
@@ -20,6 +20,9 @@ GA_SNIPPET = """
 </script>
 """
 
+# This hacky. Don't copy this approach. Rather use a .html file
+# and use Flask + Jinja templating engine to render pages to 
+# handle looping in a template.
 BASE = """
     <!DOCTYPE html>
     <html>
