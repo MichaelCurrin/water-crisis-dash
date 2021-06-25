@@ -26,12 +26,27 @@ WHERE place.name = 'Worldwide'
        OR trend.topic LIKE '%symptom%'
        OR trend.topic LIKE '%confirmed%case%'
        
+       OR trend.topic LIKE '%physical%distanc%'
        OR trend.topic LIKE '%social%distanc%'
        OR trend.topic LIKE '%panic%buy%'
        
        OR trend.topic LIKE '%stay%home%'
        OR trend.topic LIKE '%quarantine%'
        OR trend.topic LIKE '%lockdown%'
+       OR trend.topic LIKE '%lock down%'
+       
+       -- South Africa
+       OR trend.topic LIKE '%level1%'
+       OR trend.topic LIKE '%level2%'
+       OR trend.topic LIKE '%level2%'
+       OR trend.topic LIKE '%level4%'
+       OR trend.topic LIKE '%level5%'
+ 
+       OR trend.topic LIKE '%level_1%'
+       OR trend.topic LIKE '%level_2%'
+       OR trend.topic LIKE '%level_2%'
+       OR trend.topic LIKE '%level_4%'
+       OR trend.topic LIKE '%level_5%'
        
        OR trend.topic LIKE '%strain%'
        OR trend.topic LIKE '%infect%'
