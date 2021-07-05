@@ -23,7 +23,7 @@ $ git clone git@github.com:MichaelCurrin/water-crisis-dash.git
 $ cd water-crisis-dash
 ```
 
-## Setup Python environment
+## Set up Python environment
 
 Create and activate virtual environment.
 
@@ -35,9 +35,9 @@ $ source venv/bin/activate
 Install packages into it.
 
 ```bash
-$ pip install --upgrade pip
-$ pip install -r requirements.txt requirements-dev.txt
+$ make install
 ```
+
 
 ## Python Anywhere
 
@@ -56,6 +56,5 @@ $ source venv/bin/activate
 Install packages into it.
 
 ```sh
-$ pip install --upgrade pip
-$ pip install -r requirements.txt requirements-dev.txt
+$ make install
 ```

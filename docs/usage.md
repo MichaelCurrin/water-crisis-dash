@@ -2,10 +2,8 @@
 
 Start the web server.
 
-```bash
-$ cd <PATH_TO_REPO>
-$ source virtualenv/bin/activate
-$ ./water_dash/app.py
+```sh
+$ make serve
 ```
 
 Open the browser at:
@@ -21,6 +19,8 @@ The HTML and CSS has been written to be somewhat mobile responsive. So, if you h
 
 ## Development
 
+### Format
+
 ```sh
-$ black .
+$ make fmt
 ```
